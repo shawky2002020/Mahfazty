@@ -1,0 +1,93 @@
+<div id="page" @fadeSlide>
+  <div dir="rtl" id="container">
+    <header>{{ type }}</header>
+    <form [formGroup]="expenseForm" (ngSubmit)="submitForm()">
+      <label for="name"> اسم العملية</label>
+      <input id="name" formControlName="name" />
+      <div id="types">
+
+        <div for="main-type" id="type"> النوع :</div>
+        <div class="type-in-container">
+        <label for="in">
+          دخل
+          <input
+            type="radio"
+            id="in"
+            value="دخل"
+            formControlName="type"
+            (change)="typeChanged($event)"
+          />
+        </label>
+        <label for="out">
+          صرف
+          <input
+            type="radio"
+            id="out"
+            value="صرف"
+            formControlName="type"
+            (change)="typeChanged($event)"
+          />
+          
+        </label>
+      </div>
+      </div>
+      <div id="subtypes" dir="rtl" *ngIf="type === 'صرف'">
+        <label for="1">
+          <input
+            type="radio"
+            value="مصروفات شخصية"
+            id="1"
+            formControlName="subType"
+          />مصروفات شخصية
+        </label>
+        <label for="2">
+          <input
+            type="radio"
+            value="زكاة مال"
+            id="2"
+            formControlName="subType"
+          />
+          زكاة مال
+        </label>
+        <label for="3">
+          <input
+            type="radio"
+            value="مصاريف بيت"
+            id="3"
+            formControlName="subType"
+          />
+          مصاريف بيت
+        </label>
+      </div>
+      <div id="subtypes" dir="rtl" *ngIf="type === 'دخل'">
+        <label for="1">
+          <input
+            type="radio"
+            value="مرتب"
+            id="1"
+            formControlName="subType"
+          />مرتب
+        </label>
+        <label for="2">
+          <input type="radio" value="مكافأة" id="2" formControlName="subType" />
+          مكافأة
+        </label>
+        <label for="3">
+          <input type="radio" value="اخرى" id="3" formControlName="subType" />
+          اخرى
+        </label>
+      </div>
+
+      <label for="amount">المبلغ</label>
+      <input id="amount" type="number" step="1000" formControlName="amount" />
+
+      <label for="date">التاريخ</label>
+
+      <input type="date" name="date" id="date" formControlName="date" />
+
+      <div id="btn-container">
+        <button type="submit">ادخال</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<div id="page">
+  <div class="filter">
+    <p>Filter</p>
+    <svg
+      width="60px"
+      height="30px"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M0 3H16V1H0V3Z" fill="#fff" />
+      <path d="M2 7H14V5H2V7Z" fill="#fff" />
+      <path d="M4 11H12V9H4V11Z" fill="#fff" />
+      <path d="M10 15H6V13H10V15Z" fill="#dfdf" />
+    </svg>
+    <input
+      type="month"
+      name=""
+      id="filter-date"
+      #date
+      (change)="filterDate(date.value)"
+    />
+  </div>
+
+  <div class="page-container">
+    <div id="subExpense">
+      <button id="in" class="container" dir="rtl" (click)="filter('دخل')">
+        <bdi>دخل</bdi>
+      </button>
+
+      <button id="out" class="container" dir="rtl" (click)="filter('صرف')">
+        <bdi>صرف</bdi>
+      </button>
+    </div>
+
+
+    <div id="detailsContainer" *ngIf="pageExpenses.length != 0" @dropInStagger>
+  
+      <div
+      @waveStagger
+        [class.rotate]="toogle[i]"
+        id="details"
+        *ngFor="let expense of pageExpenses; index as i"
+      >
+        <div @dropInStagger (click)="show(i)" class="content" *ngIf="!toogle[i]">
+          <div class="content" *ngIf="!toogle[i]">
+            <div id="namew">{{ expense.name }}</div>
+            <div id="currency" dir="rtl">{{ expense.amount | currency }}</div>
+          </div>
+        </div>
+        <div class="btn-container">
+          <button id="delete-btn" (click)="delete(expense, i)">ازالة</button>
+          <button id="add-btn" (click)="add(expense)">ادخال</button>
+        </div>
+
+        <div @waveStagger (click)="show(i)" class="subhide" *ngIf="toogle[i]">
+          <div id="subExpense">{{ expense.subType }}</div>
+          <div id="date">{{ expense.date | date : "d/MM/y" }}</div>
+        </div>
+      </div>
+      <div class="pages-btn" *ngIf="pagesArray.length>0">
+        <button
+          *ngFor="let page of pagesArray; let i = index"
+          (click)="getItemsPerPage(i)"
+        >
+          {{i + 1}}
+        </button>
+      </div>
+    </div>
+    <div @shake style="text-align: center;" *ngIf="pageExpenses.length === 0">
+      لا توجد معاملة هذا الشهر حتى الان
+      من هذا النوع 
+
+   </div>
+  </div>
+</div>

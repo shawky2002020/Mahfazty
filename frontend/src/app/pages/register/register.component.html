@@ -1,0 +1,80 @@
+<div id="page" @fadeSlide>
+  <div dir="ltr" id="container">
+    <header>إنشاء حساب</header>
+    <form [formGroup]="registerForm">
+      <div class="in">
+        <label for="email">  Email</label>
+        <input placeholder="a@mail.com " id="email" formControlName="email" />
+        <div *ngIf="fc['email'].errors && sumbitted" class="error">
+          <p *ngIf="fc['email'].errors['required']">*يجب ادخال البريد</p>
+          <p *ngIf="fc['email'].errors['email']">*يجب ادخال بريد صحيح</p>
+        </div>
+      </div>
+
+      <div class="in">
+        <label for="pass"> Password</label>
+        <input
+          type="password"
+          (copy)="preventAction($event)"
+          (cut)="preventAction($event)"
+          (paste)="preventAction($event)"
+          placeholder="ادخل كلمة السر"
+          id="pass"
+          formControlName="password"
+        />
+        <div *ngIf="fc['password'].errors && sumbitted" class="error">
+          <p *ngIf="fc['password'].errors['required']">*يجب ادخال كلمة السر</p>
+          <p *ngIf="fc['password'].errors['pattern']">
+            *يجب ادخال رقم , حرف و 8 حروف على الأقل
+          </p>
+        </div>
+      </div>
+
+      <div class="in">
+        <label for="confirmPass">Retype Password</label>
+        <input
+          type="password"
+          (copy)="preventAction($event)"
+          (cut)="preventAction($event)"
+          (paste)="preventAction($event)"
+          placeholder="ادخل كلمة السر مرة اخرى"
+          id="confirmPass"
+          formControlName="confirmPass"
+        />
+        <div *ngIf="fc['confirmPass'].errors && sumbitted" class="error">
+          <p *ngIf="fc['confirmPass'].errors['required']">
+            *يجب اعادة إدخال كلمة السر
+          </p>
+          <p
+            *ngIf="
+              fc['confirmPass'].errors['notMatch'] &&
+              !fc['confirmPass'].errors['required']
+            "
+          >
+            كلمة السر غير صحيحة*
+          </p>
+        </div>
+      </div>
+
+      <div id="btn-container">
+        <button type="submit" (click)="submit()">ادخال</button>
+      </div>
+    </form>
+    <div id="register">
+      <span> لديك حساب؟</span>
+      <span id="down"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#F3F3F3"
+        >
+          <path
+            d="M480-200 240-440l56-56 184 183 184-183 56 56-240 240Zm0-240L240-680l56-56 184 183 184-183 56 56-240 240Z"
+          /></svg
+      ></span>
+      <a routerLink="/login"> تسجيل الدخول </a>
+    </div>
+  </div>
+</div>

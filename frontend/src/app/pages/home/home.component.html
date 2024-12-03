@@ -1,0 +1,31 @@
+<div id="page">
+  <div id="details" @fadeInOut *ngIf="true">
+    <div class="safy">
+      <div class="container" dir="ltr">
+        <bdi>صافى </bdi>
+        <section>{{ calculateTotal() | currency }}</section>
+      </div>
+    </div>
+
+    <div class="container" dir="ltr" routerLink="/expenses">
+      <bdi>المصروفات </bdi>
+      <section>{{ calculateExpense() | currency }}</section>
+    </div>
+    <div class="container" dir="ltr" routerLink="/income">
+      <bdi>الدخل </bdi>
+      <section>{{ calculateIncome() | currency }}</section>
+    </div>
+  </div>
+  <div id="chart" *ngIf="isDataLoaded">
+    <div id="chart-container">
+      <canvas
+        baseChart
+        [type]="'line'"
+        [data]="lineChartData"
+        [options]="lineChartOptions"
+        [legend]="lineChartLegend"
+      >
+      </canvas>
+    </div>
+  </div>
+</div>

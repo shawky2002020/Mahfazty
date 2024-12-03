@@ -1,0 +1,12 @@
+<div class="container" *ngIf="isLoading" aria-live="polite" role="alert">
+  <span class="loader"></span>
+  <div class="login" >
+    <h2>
+    الرجاء تسجيل الدخول لمتابعة حسابك
+    </h2>
+    <a @zoomInOut routerLink="/login" (click)="loadingService.hideLoading()">
+      تسجيل الدخول
+    </a>
+  </div>
+</div>
+

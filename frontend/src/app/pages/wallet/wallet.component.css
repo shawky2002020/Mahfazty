@@ -1,0 +1,231 @@
+#page {
+  position: relative;
+  color: antiquewhite;
+  font-size: 2rem;
+  font-family: "cairo";
+  background: linear-gradient(rgba(0, 0, 0, 0.241) 10%, rgba(0, 0, 0, 0));
+  margin: 2rem;
+  z-index: 5;
+}
+.page-container{
+  width: 70%;
+  margin: 3vh auto;
+  border-radius: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: flex-start;
+  gap: 2rem;
+}
+
+#subExpense {
+  display: flex;
+  position: relative;
+  flex-flow: row-reverse wrap;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+}
+#in,#out{
+  flex: 1 1;
+  font-size: 2rem;
+  padding: .5rem 0;
+  border: none;
+}
+
+#in{
+  background-color: aliceblue;
+  color: #031d60;
+}
+
+#out{
+  background-color: #03045e;
+  color: #fff;
+}
+
+.filter{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+  position: absolute;
+  left: 0;
+  background: #00000056;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+input[type=month]{
+  padding: .2rem;
+  max-width: 3rem;
+  margin: 1rem .2rem;
+  text-align: center;
+  border-radius: .1rem;
+  height: 2rem;
+  background: whitesmoke;
+  color: black;
+  border-style: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 2rem;
+  box-shadow: whitesmoke .2px .3px 4px;
+}
+
+
+
+
+.container {
+  flex: 1 1 ;
+  border-radius: 1rem;
+  display: flex;
+  flex-flow: column wrap;
+  text-align: center;
+  align-items: center;
+  position: relative; /* Important for positioning the ::after element */
+  z-index: 1; /* Ensures content is above the background effect */
+  overflow: hidden; /* Hides overflow from the ::after element */
+  cursor: pointer;
+}
+
+
+#detailsContainer {
+  position: relative;
+  width: 80%;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-content: center;
+}
+
+#details {
+  font-size: 1.2rem;
+  position: relative;
+  flex: 0 1 10rem;
+  min-height: 7rem;
+  background-color: #f8f9faa5;
+  overflow: hidden;
+  color: whitesmoke;
+  border: whitesmoke solid 1px;
+  padding: 1rem 0;
+  border-radius: 2rem;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content:flex-start;
+  text-align: center;
+  cursor: pointer;
+  transition: opacity .2s ease-in-out;
+  transition: transform .1s ease-in-out;
+}
+.content{
+  display:flex;
+  width: 100%;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  line-height: 20px;
+  color: rgb(43, 60, 88);
+  font-weight: 800;
+}
+
+
+#currency{
+  font-family: "Roboto Slab";
+  font-size: 1.4rem;
+  margin-top: .7rem;
+  color: #010933;
+  text-shadow: #031d60 1px 1px 18px;
+
+}
+
+
+.content,.subhide{
+  cursor: pointer;
+}
+.btn-container{
+  margin-top: 1rem;
+}
+
+.pages-btn{
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  button{
+    background-color: #031d60;
+    color: whitesmoke;
+    padding: 1rem;
+    border-radius: .5rem;
+    border: none;
+    margin: 0 .3rem;
+  }
+}
+
+.btn-container button{
+  padding:.5rem .9rem;
+  margin:.3rem;
+  border-radius: .2rem;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor:pointer;
+  border: none;
+}
+
+#add-btn{
+  color: whitesmoke;
+  background-color: #03045e;
+}
+#delete-btn{
+  color: black;
+  background-color: whitesmoke;
+}
+
+button:is(:hover,:focus,:active){
+  -webkit-box-shadow: 5px 5px 5px 0px #fff, inset 4px 4px 15px 0px #fff, 5px 5px 15px 5px aliceblue; 
+box-shadow: 5px 5px 5px 0px #001d3d56, inset 1px 1px 15px 0px rgb(9, 104, 187), 1px 1px 15px 1px aliceblue;
+}
+
+.rotate{
+  animation: card .5s ease-in-out  1  ;
+  background-color: #000814 !important;
+  color: #caf0f8 !important;
+}
+
+
+#details:hover
+{
+  transform: scale(1.1);
+  
+}
+
+@keyframes card {
+  0%{
+    opacity: 0;
+    transform: rotateY(0deg);
+  }
+  50%{
+    opacity: .5;
+    transform: rotateY(90deg);
+  }
+  0%{
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes rotate {
+  0%{
+    transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(180deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+

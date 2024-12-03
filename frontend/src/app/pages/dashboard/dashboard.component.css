@@ -1,0 +1,99 @@
+#subtypes input[type=radio] {
+  display: inline;
+  font-size: 2rem;
+}
+label{
+  display: block;
+}
+
+#types{
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 1.3rem 0;
+}
+
+#type{
+  width: 100%;
+}
+
+.type-in-container{
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 2rem;
+}
+
+#subtypes{
+  padding: 1rem;
+}
+
+input[type=date]{
+  background-color: #fff;
+}
+
+input[type=radio]{
+  height: 1.5rem;
+  width: 1.5rem;
+  accent-color:darkblue;
+  margin-left: 1rem;
+  align-self: center;
+  vertical-align: bottom;
+  
+}
+
+#page{
+  color: antiquewhite;
+  font-size: x-large;
+  font-family: 'cairo';
+  background-color: rgba(0, 0, 0, 0.479);
+  margin: 10vh auto;
+  border-radius: 1rem;
+  width: 40vw;
+}
+
+header{
+  font-size: xx-large;
+  text-align: center;
+}
+#container{
+padding: 1rem;
+}
+
+input,select{
+  display: block;
+  margin: .5rem 0;
+  padding: .3rem .7rem;
+  border-radius: 1rem;
+  border: none;
+}
+
+form{
+  padding: 1rem;
+}
+
+#btn-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+button{
+  background-color:darkblue;
+  color:whitesmoke ;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 1rem;
+  margin: 1rem 0;
+  padding:1.3rem 4rem;
+  border-style: none;
+  font-size: 1.2rem;
+}
+
+button:hover{
+  filter: brightness(2);
+}
+
+@media (max-width:768px) {
+  #page{
+    width: 90%;
+  }
+}
