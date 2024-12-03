@@ -1,0 +1,19 @@
+{
+  "name": "mahfazty",
+  "version": "1.0.0",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cd frontend && npm start & cd backend && npm start",
+    "start": "cd backend/src && node index.mjs",
+    "prebuild": "cd backend && npm install && npm run build",
+    "build": "cd frontend && npm install && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@angular/animations": "^18.0.1"
+  }
+}
