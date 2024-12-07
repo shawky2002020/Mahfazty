@@ -56,15 +56,42 @@ Make sure you have the following tools installed:
 ```bash
 git clone https://github.com/<your-username>/mahfazty.git
 cd mahfazty
-## 🚀 **Available Scripts**
+<h3><strong>Script Descriptions</strong></h3>
+```
 
-The following **npm scripts** are defined for the project. Use them to streamline development, testing, and deployment:
-
-```json
-"scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "dev": "cd frontend && npm start & cd backend && npm start",
-  "start": "cd backend/src && node index.mjs",
-  "prebuild": "cd backend && npm install && npm run build",
-  "build": "cd frontend && npm install && npm run build"
-}
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+  <thead>
+    <tr style="background-color: #34495E; color: white;">
+      <th style="padding: 10px; text-align: left;">Script</th>
+      <th style="padding: 10px; text-align: left;">Command</th>
+      <th style="padding: 10px; text-align: left;">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom: 1px solid #ddd;">
+      <td style="padding: 8px;">`test`</td>
+      <td style="padding: 8px;">`echo "Error: no test specified" && exit 1`</td>
+      <td style="padding: 8px;">Placeholder for the test script; currently not specified.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #ddd;">
+      <td style="padding: 8px;">`dev`</td>
+      <td style="padding: 8px;">`cd frontend && npm start & cd backend && npm start`</td>
+      <td style="padding: 8px;">Runs both the <strong>frontend</strong> and <strong>backend</strong> servers simultaneously in dev mode.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #ddd;">
+      <td style="padding: 8px;">`start`</td>
+      <td style="padding: 8px;">`cd backend/src && node index.mjs`</td>
+      <td style="padding: 8px;">Starts the backend server directly from the <code>src</code> directory.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #ddd;">
+      <td style="padding: 8px;">`prebuild`</td>
+      <td style="padding: 8px;">`cd backend && npm install && npm run build`</td>
+      <td style="padding: 8px;">Installs backend dependencies and runs the build process.</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px;">`build`</td>
+      <td style="padding: 8px;">`cd frontend && npm install && npm run build`</td>
+      <td style="padding: 8px;">Installs frontend dependencies and builds the production-ready frontend code.</td>
+    </tr>
+  </tbody>
+</table>
