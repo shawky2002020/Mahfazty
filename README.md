@@ -1,4 +1,4 @@
-# 🪙 **Mahfazty**  
+# 💰 **Mahfazty**  
 ### *An Intuitive Expense Tracker Application*
 
 ---
