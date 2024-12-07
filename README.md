@@ -1,97 +1,96 @@
-# 🪙 **Mahfazty**  
-### *An Intuitive Expense Tracker Application*
+<div style="text-align: center; margin-bottom: 40px;">
+  <h1 style="font-size: 3rem; color: #2c3e50;">🪙 <strong>Mahfazty</strong></h1>
+  <p style="font-size: 1.25rem; color: #34495e;">An Intuitive Expense Tracker Application</p>
+</div>
+<div style="background-color: #ecf0f1; padding: 40px 20px; border-radius: 10px; margin-bottom: 40px;">
+  <h3 style="font-size: 1.75rem; color: #34495e;">📜 Overview</h3>
+  <p style="font-size: 1.15rem; color: #7f8c8d; line-height: 1.6;">
+    Mahfazty is a modern, user-friendly web application designed to help individuals manage their expenses efficiently.
+    With Mahfazty, you can track income, categorize spending, and gain insightful analytics into your financial habits.
+    The platform is built with a clean UI/UX and ensures a smooth, responsive experience for users.
+  </p>
+</div>
+<div style="margin-bottom: 40px;">
+  <h3 style="font-size: 1.75rem; color: #34495e;">✨ Key Features</h3>
+  <ul style="list-style-type: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+    <li style="background-color: #ecf0f1; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <strong>📊 Expense Management</strong>
+      <p style="color: #7f8c8d;">Add, edit, and delete your expenses with ease.</p>
+    </li>
+    <li style="background-color: #ecf0f1; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <strong>📅 Monthly Reports</strong>
+      <p style="color: #7f8c8d;">View summarized reports of your spending habits on a monthly basis.</p>
+    </li>
+    <li style="background-color: #ecf0f1; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <strong>🗂 Categorization</strong>
+      <p style="color: #7f8c8d;">Organize expenses into predefined or custom categories.</p>
+    </li>
+    <li style="background-color: #ecf0f1; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <strong>📈 Interactive Charts</strong>
+      <p style="color: #7f8c8d;">Visualize your expenses using beautiful pie charts and bar graphs.</p>
+    </li>
+    <li style="background-color: #ecf0f1; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <strong>🌐 Responsive Design</strong>
+      <p style="color: #7f8c8d;">Works seamlessly on all devices – desktops, tablets, and mobile phones.</p>
+    </li>
+    <li style="background-color: #ecf0f1; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <strong>🔐 Secure Storage</strong>
+      <p style="color: #7f8c8d;">All data is securely stored for privacy and reliability.</p>
+    </li>
+  </ul>
+</div>
+<div style="margin-bottom: 40px;">
+  <h3 style="font-size: 1.75rem; color: #34495e;">🛠️ Tech Stack</h3>
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+    <div style="background-color: #ecf0f1; padding: 20px; border-radius: 10px; text-align: center;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Angular_logo.svg" alt="Angular" style="width: 50px; margin-bottom: 10px;">
+      <h4 style="color: #34495e;">Frontend</h4>
+      <ul style="color: #7f8c8d;">
+        <li>Angular (vXX)</li>
+        <li>HTML5, CSS3, TypeScript</li>
+        <li>Bootstrap</li>
+      </ul>
+    </div>
+    <div style="background-color: #ecf0f1; padding: 20px; border-radius: 10px; text-align: center;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js" style="width: 50px; margin-bottom: 10px;">
+      <h4 style="color: #34495e;">Backend</h4>
+      <ul style="color: #7f8c8d;">
+        <li>Node.js</li>
+        <li>Express.js</li>
+        <li>RESTful APIs</li>
+      </ul>
+    </div>
+    <div style="background-color: #ecf0f1; padding: 20px; border-radius: 10px; text-align: center;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/MongoDB_Logo_2019.svg" alt="MongoDB" style="width: 50px; margin-bottom: 10px;">
+      <h4 style="color: #34495e;">Database</h4>
+      <ul style="color: #7f8c8d;">
+        <li>MongoDB</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div style="background-color: #ecf0f1; padding: 40px 20px; border-radius: 10px; margin-bottom: 40px;">
+  <h3 style="font-size: 1.75rem; color: #34495e;">🚀 How to Run Locally</h3>
+  <h4 style="color: #34495e;">Prerequisites</h4>
+  <ul style="color: #7f8c8d; font-size: 1.1rem; line-height: 1.6;">
+    <li><a href="https://nodejs.org/" target="_blank" style="color: #2980b9; text-decoration: none;">Node.js (LTS version)</a></li>
+    <li>npm (comes with Node.js)</li>
+    <li>MongoDB installed and running locally</li>
+  </ul>
+  <h4 style="color: #34495e;">Clone the Repository</h4>
+  <pre style="background-color: #f8f9f9; padding: 20px; border-radius: 5px; color: #2c3e50;">
+    <code>
+      git clone https://github.com/<your-username>/mahfazty.git
+      cd mahfazty
+    </code>
+  </pre>
+</div>
+<div style="text-align: center; background-color: #34495e; padding: 20px; color: white; border-radius: 10px;">
+  <p style="font-size: 1.1rem;">Made with ❤️ by Shawky</p>
+  <p style="font-size: 1rem;">Find me on <a href="https://github.com/your-username" style="color: #1abc9c;">GitHub</a> | <a href="https://linkedin.com/in/your-profile" style="color: #1abc9c;">LinkedIn</a></p>
+</div>
 
----
 
-## 📜 **Overview**
 
-**Mahfazty** is a modern, user-friendly web application designed to help individuals manage their expenses efficiently. With **Mahfazty**, you can track income, categorize spending, and gain insightful analytics into your financial habits. The platform is built with a clean UI/UX and ensures a smooth, responsive experience for users.
 
----
 
-## ✨ **Key Features**
-
-- 📊 **Expense Management**: Add, edit, and delete your expenses with ease.
-- 📅 **Monthly Reports**: View summarized reports of your spending habits on a monthly basis.
-- 🗂 **Categorization**: Organize expenses into predefined or custom categories.
-- 📈 **Interactive Charts**: Visualize your expenses using beautiful pie charts and bar graphs.
-- 🌐 **Responsive Design**: Works seamlessly on all devices – desktops, tablets, and mobile phones.
-- 🔐 **Secure Storage**: All data is securely stored for privacy and reliability.
-
----
-
-## 🛠️ **Tech Stack**
-
-### **Frontend**:
-- Angular (vXX)
-- HTML5, CSS3, TypeScript
-- Bootstrap (for styling and responsiveness)
-
-### **Backend**:
-- Node.js with Express.js
-- RESTful APIs
-
-### **Database**:
-- MongoDB (NoSQL Database)
-
-### **Other Tools**:
-- Git for version control
-- npm for package management
-- ngx-charts for data visualization
-
----
-
-## 🚀 **How to Run Locally**
-
-Follow these steps to set up and run **Mahfazty** on your local machine:
-
-### **Prerequisites**
-Make sure you have the following tools installed:
-- [Node.js](https://nodejs.org/) (LTS version)
-- npm (comes with Node.js)
-- MongoDB installed and running locally
-
-### **Clone the Repository**
-
-```bash
-git clone https://github.com/<your-username>/mahfazty.git
-cd mahfazty
-<h3><strong>Script Descriptions</strong></h3>
-```
-
-<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
-  <thead>
-    <tr style="background-color: #34495E; color: white;">
-      <th style="padding: 10px; text-align: left;">Script</th>
-      <th style="padding: 10px; text-align: left;">Command</th>
-      <th style="padding: 10px; text-align: left;">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr style="border-bottom: 1px solid #ddd;">
-      <td style="padding: 8px;">`test`</td>
-      <td style="padding: 8px;">`echo "Error: no test specified" && exit 1`</td>
-      <td style="padding: 8px;">Placeholder for the test script; currently not specified.</td>
-    </tr>
-    <tr style="border-bottom: 1px solid #ddd;">
-      <td style="padding: 8px;">`dev`</td>
-      <td style="padding: 8px;">`cd frontend && npm start & cd backend && npm start`</td>
-      <td style="padding: 8px;">Runs both the <strong>frontend</strong> and <strong>backend</strong> servers simultaneously in dev mode.</td>
-    </tr>
-    <tr style="border-bottom: 1px solid #ddd;">
-      <td style="padding: 8px;">`start`</td>
-      <td style="padding: 8px;">`cd backend/src && node index.mjs`</td>
-      <td style="padding: 8px;">Starts the backend server directly from the <code>src</code> directory.</td>
-    </tr>
-    <tr style="border-bottom: 1px solid #ddd;">
-      <td style="padding: 8px;">`prebuild`</td>
-      <td style="padding: 8px;">`cd backend && npm install && npm run build`</td>
-      <td style="padding: 8px;">Installs backend dependencies and runs the build process.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px;">`build`</td>
-      <td style="padding: 8px;">`cd frontend && npm install && npm run build`</td>
-      <td style="padding: 8px;">Installs frontend dependencies and builds the production-ready frontend code.</td>
-    </tr>
-  </tbody>
-</table>
