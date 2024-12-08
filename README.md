@@ -1,10 +1,7 @@
-# 💰 **Mahfazty**  
-
+#  **Mahfazty**  
 ### *An Intuitive Expense Tracker Application*
 ![mahfazty](https://github.com/user-attachments/assets/1daa6611-975c-4cb3-9b59-043e9777cdb2)
-
 ---
-
 ## 📜 **Overview**
 
 **Mahfazty** is a modern, user-friendly web application designed to help individuals manage their expenses efficiently. With **Mahfazty**, you can track income, categorize spending, and gain insightful analytics into your financial habits. The platform is built with a clean UI/UX and ensures a smooth, responsive experience for users.
