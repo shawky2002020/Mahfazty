@@ -22,7 +22,7 @@
 ## 🛠️ **Tech Stack**
 
 ### **Frontend**:
-- Angular (vXX)
+- Angular 
 - HTML5, CSS3, TypeScript
 - Bootstrap (for styling and responsiveness)
 
