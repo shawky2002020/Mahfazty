@@ -55,9 +55,8 @@ Make sure you have the following tools installed:
 ```bash
 git clone https://github.com/<your-username>/mahfazty.git
 cd mahfazty
-<h3><strong>Script Descriptions</strong></h3>
 ```
-
+<h3><strong>Script Descriptions</strong></h3>
 <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
   <thead>
     <tr style="background-color: #34495E; color: white;">
