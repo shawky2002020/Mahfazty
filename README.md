@@ -1,5 +1,7 @@
 # 💰 **Mahfazty**  
+
 ### *An Intuitive Expense Tracker Application*
+![mahfazty](https://github.com/user-attachments/assets/1daa6611-975c-4cb3-9b59-043e9777cdb2)
 
 ---
 
