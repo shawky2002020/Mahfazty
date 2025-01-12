@@ -58,16 +58,3 @@ Whether you're looking to manage personal finances or monitor household expenses
 
 ---
 
-## 🚀 **Getting Started**
-
-Follow these instructions to set up and run **Mahfazty** on your local machine.
-
-### **Prerequisites**
-
-Ensure the following tools are installed on your system:
-
-- [Node.js](https://nodejs.org/) (LTS version)
-- npm (comes bundled with Node.js)
-- MongoDB (installed and running locally)
-
-
