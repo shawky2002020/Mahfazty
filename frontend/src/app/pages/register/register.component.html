@@ -3,7 +3,7 @@
     <header>إنشاء حساب</header>
     <form [formGroup]="registerForm">
       <div class="in">
-        <label for="email">  Email</label>
+        <label for="email"> Email</label>
         <input placeholder="a@mail.com " id="email" formControlName="email" />
         <div *ngIf="fc['email'].errors && sumbitted" class="error">
           <p *ngIf="fc['email'].errors['required']">*يجب ادخال البريد</p>
@@ -72,8 +72,8 @@
         >
           <path
             d="M480-200 240-440l56-56 184 183 184-183 56 56-240 240Zm0-240L240-680l56-56 184 183 184-183 56 56-240 240Z"
-          /></svg
-      ></span>
+          /></svg>
+        </span>
       <a routerLink="/login"> تسجيل الدخول </a>
     </div>
   </div>

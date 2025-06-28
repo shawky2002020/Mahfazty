@@ -321,7 +321,7 @@ export class IncomeComponent implements OnInit {
   }
 
   updateChartSize() {
-    const width = window.innerWidth * 0.8; // Adjust as per your requirement
+    const width = window.innerWidth ; // Adjust as per your requirement
     const height = 400; // Fixed height or calculate dynamically
     this.view = [width, height];
   }

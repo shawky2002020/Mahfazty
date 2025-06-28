@@ -5,7 +5,7 @@
 
 header{
   line-height: 3.4rem;
-  padding:1rem .4rem;
+  padding:20px .4rem;
   font-size: xx-large;
   text-align: center;
 }
@@ -16,10 +16,20 @@ header{
   font-size: x-large;
   font-family: 'cairo';
   background-color: rgba(0, 0, 0, 0.479);
-  margin: 10vh auto;
   border-radius: 1rem;
-  min-width: 40vw;
-  max-width: 50%;
+  max-width: 800px;
+  min-width: 300px;
+  width: 100%;
+  border: solid;
+}
+#container{
+  display: flex;
+  flex-flow: column;
+}
+@media screen and (max-width: 768px) {
+  #container{
+    padding: 0 1rem;
+  }
 }
 
 
@@ -27,7 +37,7 @@ header{
 label{
   color: gainsboro;
   display: block;
-  margin: .5rem;
+  margin:0 .5rem;
   font-size: large;
 }
 input,select{
@@ -39,7 +49,7 @@ input,select{
   border: none;
   border-radius: .5rem;
   margin-bottom: .5rem;
-  margin-left: 1.3rem;
+  margin-left: .2rem;
   padding: .6rem .7rem;
 }
 
@@ -48,7 +58,7 @@ form{
 }
 
 .in{
-  margin-bottom: 2rem ;
+  margin-bottom: 1rem ;
 }
 
 #btn-container{

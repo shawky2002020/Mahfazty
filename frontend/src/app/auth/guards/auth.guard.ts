@@ -8,12 +8,13 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UsersService } from '../../services/users.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
 })
 export class authGuard implements CanActivate {
-  constructor(private userService: UsersService, private router: Router) {}
+  constructor(private userService: UsersService, private router: Router,private toast:ToastrService) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -28,6 +29,7 @@ export class authGuard implements CanActivate {
     }
 
     // Redirect to the login page with a return URL
+    this.toast.info('','الرجاء تسجيل الدخول اولا')
     this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
     return false;
   }

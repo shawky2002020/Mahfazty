@@ -1,19 +1,10 @@
 <div id="page" *ngIf="loaded">
   <div id="subExpense">
+    <div class="title">
+      <h2>الدخل</h2>
+    </div>
     <div class="filter">
-      <label for="filter-date">Filter</label>
-      <svg
-        width="60px"
-        height="30px"
-        viewBox="0 0 16 16"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M0 3H16V1H0V3Z" fill="#fff" />
-        <path d="M2 7H14V5H2V7Z" fill="#fff" />
-        <path d="M4 11H12V9H4V11Z" fill="#fff" />
-        <path d="M10 15H6V13H10V15Z" fill="#dfdf" />
-      </svg>
+    
       <input
         type="month"
         name=""
@@ -69,7 +60,7 @@
       </button>
     </div>
   </div>
-  <div @shake *ngIf="expenses.length === 0">لا توجد معاملة من هذا النوع حتى الان</div>
+  <div class="no-exp" @shake *ngIf="expenses.length === 0 && loaded">لا توجد معاملة من هذا النوع حتى الان</div>
 
   <div id="chart" *ngIf="loaded" class="in">
     <ngx-charts-advanced-pie-chart

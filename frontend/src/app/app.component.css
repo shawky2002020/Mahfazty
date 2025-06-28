@@ -1,0 +1,9 @@
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: fit-content;
+    padding: 20px 0 50px 0;
+    width: 100%;
+    
+}

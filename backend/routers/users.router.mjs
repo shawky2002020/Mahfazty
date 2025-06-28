@@ -49,9 +49,9 @@ router.post('/register', async (req, res) => {
     if (findedUser) {
       return res.status(400).send('هذا الحساب مسجل بالفعل');
     }
-
     // Create new user
-    const newUser = await User.create(req.body);
+    const newUser = new User(req.body);
+    await newUser.save();
 
     // Generate token
     const token = jwt.sign({ id: newUser._id }, process.env.SECRET, {

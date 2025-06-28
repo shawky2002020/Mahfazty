@@ -1,4 +1,7 @@
-<div id="page" @fadeSlide>
+<div class="title">
+  <h1>إضافة معاملة</h1>
+</div>
+<div class="add-page" @fadeSlide>
   <div dir="rtl" id="container">
     <header>{{ type }}</header>
     <form [formGroup]="expenseForm" (ngSubmit)="submitForm()">

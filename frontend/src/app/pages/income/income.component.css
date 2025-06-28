@@ -2,10 +2,9 @@
   color: antiquewhite;
   font-size: 2rem;
   font-family: "cairo";
-  margin: 3vh auto;
   border-radius: 1rem;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   justify-content: space-around;
   align-items: center;
   align-content: flex-start;
@@ -15,17 +14,31 @@
   z-index: 5;
   min-height: 100vh;
 }
+@media screen and (max-width:968px) {
+  #page{
+    margin:0 4px;
+  }
+}
 
 #subExpense {
   position: relative;
   display: flex;
-  flex-flow: row-reverse wrap;
+  flex-flow: column wrap;
   justify-content: center;
   align-items: center;
   width: 100%;
   gap: .5rem;
 }
-
+.title{
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: whitesmoke;
+  padding: 1rem;
+  /* background: #00000056; */
+  border-radius: 1rem;
+  text-align: center;
+  margin: 20px;
+}
 .filter{
   display: flex;
   flex-flow: column wrap;
@@ -41,9 +54,7 @@
   border-radius: 1rem;
 }
 input[type=month]{
-  padding: .2rem;
   max-width: 3rem;
-  margin: 1rem .2rem;
   text-align: center;
   border-radius: .1rem;
   height: 2rem;
@@ -65,13 +76,18 @@ button{
  gap: 1rem;
  align-items: center;
  justify-content: center;
- flex-flow: row wrap;
+ flex-flow: row nowrap;
+}
+@media screen and (max-width:968px) {
+  .heads{
+    width: 100%;
+  }
 }
 .container {
   font-size: 1.5rem;
   height: 7rem;
   flex: 1 1;
-  background-color: #062e95;
+  background-color: rgba(0, 0, 0, 0.319);
   color: whitesmoke;
   border-radius: 1rem;
   display: flex;
@@ -136,7 +152,7 @@ button{
   margin-top: 3rem;
   margin-bottom: 0;
   color: #010933;
-  text-shadow: #031d60 1px 1px 18px;
+  text-shadow: #c1c4ca 1px 1px 18px;
 }
 
 img{
@@ -166,6 +182,17 @@ img{
   font-size: x-large;
 
 }
+.no-exp{
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: whitesmoke;
+  padding: 1rem;
+  background: #00000056;
+  border-radius: 1rem;
+  text-align: center;
+  margin: 20px;
+}
 #date{
   font-size: 1rem;
   color: #979dac;
@@ -178,7 +205,7 @@ img{
   flex-flow: row nowrap;
   justify-content: center;
   button{
-    background-color: #031d60;
+    background-color: #0b142c;
     color: whitesmoke;
     padding: 1rem;
     border-radius: .5rem;
@@ -205,7 +232,6 @@ img{
 #chart {
   width: 100%;
   height: 100%;
-  max-width: 600px; /* Set max width if needed */
   margin: auto; /* Center the chart */
 }
 
@@ -218,7 +244,8 @@ ngx-charts-advanced-pie-chart{
   align-items: center;
   justify-content: center;
   background-color: #feffff26;
-  border-radius: 2rem;
+  border-radius: 1rem;
+  margin: 1rem;
 }
 
 

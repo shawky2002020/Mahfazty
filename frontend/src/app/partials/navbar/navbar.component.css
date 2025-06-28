@@ -1,4 +1,4 @@
-#container{
+#container {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
@@ -6,21 +6,34 @@
   position: relative;
   width: 100vw;
 }
+.overlay{
+  background: #000000e4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  /* opacity: 0; */
 
-#ulist{
+  transition: opacity 0.3s ease-in-out;
+}
+.overlay.active {
+  opacity: 1;
+}
+#ulist {
   /* background: linear-gradient(to bottom,#002855 1% ,#caf0f8b1 90% ); */
   position: relative;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-size: 2rem;
   font-style: normal;
-  color: #F1FAEE;
+  color: #f1faee;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   width: 100%;
-  
 }
 
 #header {
@@ -30,13 +43,15 @@
   align-items: center; /* Center vertically */
   position: relative;
   height: 100%; /* Ensure it takes up the full height of the navbar */
+  margin-left: 100px;
+  margin-top: 4px;
 }
 
 .photo {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 100px;
   width: 100%;
 }
 
@@ -46,15 +61,14 @@ img {
   max-width: 9rem;
   transform: scale(2);
   margin-bottom: 2rem;
-  height: 7rem;
+  height: 100%;
   object-fit: cover; /* Ensures the image covers the available space without stretching */
 }
 
-a{
+a {
   all: unset;
   cursor: pointer;
   position: relative;
-  flex: 1 1;
   width: 100%;
   text-align: center;
   display: flex;
@@ -63,118 +77,126 @@ a{
   align-items: center;
 }
 
-svg{
-  /* position: absolute; */
-  left: 0;
-  color: #F1FAEE;
-
+svg {
+  margin-top: 14px;
+  color: #f1faee;
 }
 
-li{
+li {
   list-style: none;
 }
 
-i{
-  color: #F1FAEE;
+i {
+  color: #f1faee;
 }
 
-#nav-bar{
+#nav-bar {
+  position: absolute;
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-start;
   align-items: center;
-  position: absolute;
-  top:40%;
-  right: 8%;
-  height: 100%;
+  top: 30px;
+  right: 50px;
   z-index: 20;
+  height: 80px;
 }
-.bars-container{
+#nav-bar.active {
+  #list {
+    opacity: 1;
+    transform: translateX(-100px);
+  }
+}
+.bars-container {
   cursor: pointer;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  gap: .3rem;
+  gap: 6px;
+}
+.active .bar {
+  transform-origin: center;
 }
 
-.rotate{
-  transform: rotateZ(90deg);
+.active .bar:nth-child(2) {
+  transform: scaleX(0.3);
 }
 
-.bar{
-  width: 3.5rem;
-  height: .8rem;
+.bar {
+  width: 90px;
+  height: 15px;
+  border-radius: 10px;
   background-color: whitesmoke;
-  &:nth-child(even){
-    background: #002855;
-  }  
+  &:nth-child(even) {
+    background: #00418c;
+  }
 }
 
 /* #nav:has(:hover) .bar:nth-child(even){
   transform: scale(1.4) rotate(90deg) ;
 } */
-#nav{
+#nav {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  
 }
 
-#list{
+#list {
+  position: absolute;
+  top: 80px;
   font-family: "Cairo", sans-serif;
-  margin-top: 1rem;
   display: flex;
-  width: 140%;
+  width: 280px;
   flex-flow: column nowrap;
-  align-items: center;
+  align-items: end;
   background: #e3f2fd;
   border-radius: 5px;
-  transition: opacity transform;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 1s ease-in-out, transform 0.5s ease-in-out !important;
 }
 
-#list li{
+#list li {
   position: relative;
   display: flex;
   flex-flow: column wrap;
-  align-items: center;
+  align-items: end;
   justify-content: center;
   align-items: center;
-  flex: 1 1 3rem;
-  padding: 0.3rem 1rem;
   width: 100%;
+  height: 100px;
   text-align: center;
   color: #002855;
   border-radius: 5px;
+  a {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0 24px;
+    i {
+      color: #002855;
+      margin-right: 12px;
+    }
+  }
 }
 
-#login{
-  font-size: 2rem;
-  line-height: 2.5rem;
-}
-
-.in,.out{
+.in,
+.out {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
 }
 
-#add{
-  span{
-    display: block;
-    margin: 0;
-    max-width: 100%;
-  }
-}
-
-#addList{
+#addList {
   flex-flow: column;
   justify-content: center;
   align-items: center;
   display: none;
 }
 
-#addList.active{
+#addList.active {
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -182,82 +204,68 @@ i{
   width: 100%;
 }
 
-#addList>li{
-  background-color: #74c69d;
-  flex: 1 1;  
-  a{
-    width: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-    
+#list li:hover {
+  color: #e3f2fd;
+  background-color: #002855;
+  i{
+    color: #e3f2fd !important;
   }
 }
 
-#addList>:nth-child(2){
-  color: whitesmoke;
-  background-color: #2c7da0;
-}
-#add>button{
-  width: 100%;
-  font-size: 2rem;
-  padding: 1rem 0;
-  background: #002855;
-  color: aliceblue;
-  border: none;
-  cursor: pointer;
-}
-
-#nav-bar:has(:hover,:focus) #list{
-  transition: transform;
-  transition-duration: .5s !important;
-  opacity: 1;
-}
-
-#list li:hover{
-  color: #e3f2fd;
-  background-color: #002855;
-}
-
-header:hover{
+header:hover {
   transform: scale(1.2);
 }
 
 header,
-
-#nav,.bar,
+#nav,
+.bar,
 #addList.active,
 #nav-bar:hover #list,
 #list li:hover,
-#list{
-  transition-duration: .2s;
+#list {
+  transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
 }
 
-
-@media (max-width:768px) {
-  #nav-bar,#login{
-    font-size: 1rem;
-    line-height: 1.5rem;
+@media (max-width: 968px) {
+  #nav-bar {
+    right: 0;
   }
-  #header{
-    transform: scale(.8);
-    margin:0 3rem ;
+  #header {
+    transform: scale(0.8);
+    margin: 0 4rem;
   }
-  #ulist{
-    align-items:center ;
+  #ulist {
+    align-items: center;
     align-content: space-between;
   }
 
-  .bar{
-    height: .7rem;
-    width:3rem ;
+  .bar {
+    width: 50px;
+    height: 10px;
   }
-  #nav{
+  #nav {
     width: 6rem;
   }
- 
 }
+@media (max-width: 768px) {
+  #nav-bar {
+    right: 0;
+  }
+  #header {
+    transform: scale(0.6);
+    margin: 0 2rem;
+  }
+  #ulist {
+    align-items: center;
+    align-content: space-between;
+  }
 
-
+  .bar {
+    width: 50px;
+    height: 10px;
+  }
+  #nav {
+    width: 6rem;
+  }
+}

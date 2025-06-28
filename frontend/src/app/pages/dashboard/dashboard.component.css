@@ -1,4 +1,13 @@
+.title{
+  h1{
+    text-align: center;
+    color: whitesmoke;
+    font-size: 2rem;
+    font-family: almarai;
+  }
+}
 #subtypes input[type=radio] {
+
   display: inline;
   font-size: 2rem;
 }
@@ -40,14 +49,24 @@ input[type=radio]{
   
 }
 
-#page{
+.add-page{
   color: antiquewhite;
   font-size: x-large;
   font-family: 'cairo';
   background-color: rgba(0, 0, 0, 0.479);
-  margin: 10vh auto;
+  margin: 20px auto;
   border-radius: 1rem;
-  width: 40vw;
+  width: 700px;
+}
+@media screen and (max-width:768px) {
+  .add-page{
+    width: 400px;
+  }
+}
+@media screen and (max-width:480px) {
+  .add-page{
+    width: 300px;
+  }
 }
 
 header{
@@ -57,11 +76,19 @@ header{
 #container{
 padding: 1rem;
 }
+@media screen and (max-width:480px) {
+  #container{
+    padding: 1rem 0;
+  }
+}
 
 input,select{
   display: block;
   margin: .5rem 0;
-  padding: .3rem .7rem;
+  padding: 0 20px;
+  height: 40px;
+  width: 70%;
+  max-width: 300px;
   border-radius: 1rem;
   border: none;
 }
@@ -81,9 +108,10 @@ button{
   color:whitesmoke ;
   cursor: pointer;
   font-weight: bold;
-  border-radius: 1rem;
+  border-radius: .5rem;
   margin: 1rem 0;
-  padding:1.3rem 4rem;
+  padding:.6rem 0;
+  width: 100%;
   border-style: none;
   font-size: 1.2rem;
 }

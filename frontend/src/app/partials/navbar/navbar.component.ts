@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, viewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ExpenseService } from '../../services/expense.service';
 import { UsersService } from '../../services/users.service';
@@ -12,7 +12,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
   styleUrl: './navbar.component.css',
 
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent implements OnInit, AfterViewInit {
   public currentUser?: userResponse;
   addBool = false;
   navShow = false;
@@ -22,14 +22,25 @@ export class NavBarComponent implements OnInit {
     private userService: UsersService,
     private router :Router
   ) {}
+  @ViewChild ('overLayEl') overLayEl!:ElementRef;
+  ngAfterViewInit(): void {
+    
+  }
+  @ViewChild ('navIconEl') navIcon!:ElementRef;
   ngOnInit(): void {
     this.userService.userObservable.subscribe((newUser) => {
       this.currentUser = newUser;
     });
   }
   showNav() {
-    this.addBool = false;
-    this.navShow = !this.navShow;
+    this.navIcon.nativeElement.classList.toggle('active');
+    this.navShow =!this.navShow;
+    this.overLayEl.nativeElement.classList.toggle('active');
+  }
+    close(){
+    this.navIcon.nativeElement.classList.remove('active');
+    this.navShow=false;
+    this.overLayEl.nativeElement.classList.remove('active');
   }
   showAddList() {
     this.addBool = !this.addBool;

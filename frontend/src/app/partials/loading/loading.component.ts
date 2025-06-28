@@ -24,7 +24,6 @@ export class LoadingComponent implements OnInit {
 
   isLoading!: boolean;
   constructor(public loadingService: LoadingService,public userService : UsersService) {
-    loadingService.showLoading()
     loadingService.isLoading.subscribe((isLoading) => {
       this.isLoading = isLoading;
     });

@@ -1,29 +1,19 @@
-<div id="page">
-  <div class="filter">
-    <p>Filter</p>
-    <svg
-      width="60px"
-      height="30px"
-      viewBox="0 0 16 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M0 3H16V1H0V3Z" fill="#fff" />
-      <path d="M2 7H14V5H2V7Z" fill="#fff" />
-      <path d="M4 11H12V9H4V11Z" fill="#fff" />
-      <path d="M10 15H6V13H10V15Z" fill="#dfdf" />
-    </svg>
-    <input
-      type="month"
-      name=""
-      id="filter-date"
-      #date
-      (change)="filterDate(date.value)"
-    />
-  </div>
-
-  <div class="page-container">
+<div id="page" *ngIf="loaded">
     <div id="subExpense">
+    <div class="title">
+      <h2>محفظتى</h2>
+    </div>
+    <div class="filter">
+    
+      <input
+        type="month"
+        name=""
+        id="filter-date"
+        #date
+        (change)="filterDate(date.value)"
+      />
+    </div>
+    <div class="heads">
       <button id="in" class="container" dir="rtl" (click)="filter('دخل')">
         <bdi>دخل</bdi>
       </button>
@@ -32,9 +22,14 @@
         <bdi>صرف</bdi>
       </button>
     </div>
+  </div>
+
+  <div class="page-container">
+  
 
 
-    <div id="detailsContainer" *ngIf="pageExpenses.length != 0" @dropInStagger>
+    <div id="detailsContainer" *ngIf="pageExpenses.length != 0 " @dropInStagger>
+
   
       <div
       @waveStagger
@@ -67,7 +62,7 @@
         </button>
       </div>
     </div>
-    <div @shake style="text-align: center;" *ngIf="pageExpenses.length === 0">
+    <div @shake class="no-exp" style="text-align: center;" *ngIf="pageExpenses.length === 0 && loaded">
       لا توجد معاملة هذا الشهر حتى الان
       من هذا النوع 
 

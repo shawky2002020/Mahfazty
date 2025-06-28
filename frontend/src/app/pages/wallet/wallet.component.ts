@@ -7,6 +7,7 @@ import { UsersService } from '../../services/users.service';
 import { FilterService } from '../../services/filter.service';
 import { ToastrService } from 'ngx-toastr';
 import { animate, keyframes, query, stagger, style, transition, trigger } from '@angular/animations';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-wallet',
@@ -62,6 +63,7 @@ export class WalletComponent implements OnInit {
   outcomeExpense!: Expense[];
   incomeExpense!: Expense[];
   subDate!: subdate;
+  loaded=false;
   dateSelected = false;
   maxItemsPerPage = 10;
   constructor(
@@ -74,40 +76,32 @@ export class WalletComponent implements OnInit {
     
   }
   toogle!: boolean[];
-  ngOnInit(): void {
-    this.loadExpenses();
-  }
 
-  loadExpenses() {
-    this.getExpenses();
-    this.getOutExp();
-    this.getInExp();
-  }
-  getExpenses() {
-    this.expenseService.getExpense(this.userId).subscribe({
-      next: (Expenses) => {
-        this.expenses = Expenses;
-        this.toogle = Array(this.expenses.length).fill(false);
-      },
-      error(err) {
-        console.log(err);
-      },
-      complete: () => {
-        this.getItemsPerPage();
-      },
-    });
-  }
-  getOutExp() {
-    this.expenseService.getTypeExpense('صرف', this.userId).subscribe((val) => {
-      this.outcomeExpense = val;
-    });
-  }
+ngOnInit(): void {
+  this.loadExpenses();
+}
 
-  getInExp() {
-    this.expenseService.getTypeExpense('دخل', this.userId).subscribe((val) => {
-      this.incomeExpense = val;
-    });
-  }
+loadExpenses() {
+  forkJoin({
+    allExpenses: this.expenseService.getExpense(this.userId),
+    outcome: this.expenseService.getTypeExpense('صرف', this.userId),
+    income: this.expenseService.getTypeExpense('دخل', this.userId)
+  }).subscribe({
+    next: ({ allExpenses, outcome, income }) => {
+      this.expenses = allExpenses;
+      this.outcomeExpense = outcome;
+      this.incomeExpense = income;
+      this.toogle = Array(this.expenses.length).fill(false);
+      this.getItemsPerPage();
+    },
+    error: (err) => {
+      console.error(err);
+    },
+    complete:()=>{
+      this.loaded=true;
+    }
+  });
+}
 
   getPagesNum(expenses: Expense[]) {
     console.log(expenses);
@@ -129,6 +123,7 @@ export class WalletComponent implements OnInit {
 
 
   filter(s: string) {
+    this.loaded=false;
     if (s === 'دخل') {
       const incomeExps = this.incomeExpense;
       if (this.dateSelected) {
@@ -169,6 +164,7 @@ export class WalletComponent implements OnInit {
 
     this.getItemsPerPage();
     this.toogle.fill(false, 0, this.toogle.length);
+    this.loaded=true;
   }
 
   filterDate(datestring: string) {
@@ -212,7 +208,7 @@ export class WalletComponent implements OnInit {
         console.log(err);
       },
       complete:()=>{
-        this.getExpenses()
+        this.loadExpenses()
       }
     });
   }
@@ -225,7 +221,7 @@ export class WalletComponent implements OnInit {
         this.pageExpenses.splice(i, 1);
       },
       complete:()=>{
-        this.getExpenses()
+        this.loadExpenses()
       }
     });
   }

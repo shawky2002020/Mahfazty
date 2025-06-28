@@ -1,5 +1,5 @@
 
-#page{
+.home-page{
   color: antiquewhite;
   font-size: 1.7rem;
   font-family: 'cairo';
@@ -8,8 +8,10 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
+  align-items: center;
   z-index: 5;
-  min-height: 100vh;
+  width: 100%;
+  height: fit-content;
 }
 #details{
   width: 50%;
@@ -18,7 +20,7 @@
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  height: 40vh;
+  height: fit-content;
 }
 
 .safy{
@@ -28,7 +30,7 @@
 .container{
   display: flex;
   flex-flow: column wrap;
-  flex: 1 0 10rem;
+  flex: 1 0 ;
   justify-content: space-around;
   position: relative;
   z-index: 5;
@@ -85,13 +87,45 @@ section{
 
 #chart {
   position: relative;
-  width: 100%;
   z-index: 2;
   margin: 10rem 0;
+  overflow-x: auto;
+  width: 700px;
+  scrollbar-width: thin;
+  scrollbar-color: #03045e #caf0f8;
 }
-#chart-container{
-  flex: 1 1;
+@media screen and (max-width: 768px) {
+  #chart {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 425px) {
+  #chart {
+    width: 300px;
+  }
+}
+
+#chart::-webkit-scrollbar {
+  height: 8px;
+}
+
+#chart::-webkit-scrollbar-track {
+  background: #caf0f8;
+  border-radius: 4px;
+}
+
+#chart::-webkit-scrollbar-thumb {
+  background: #03045e;
+  border-radius: 4px;
+}
+
+#chart::-webkit-scrollbar-thumb:hover {
+  background: #00509d;
+}
+
+#chart-container {
+  min-width: 600px;
+  flex: 1 1 auto;
   margin: 0 auto;
-  width: min(90%,60rem);
 }
 

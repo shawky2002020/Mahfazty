@@ -1,19 +1,11 @@
 <div id="page" *ngIf="loaded">
   <div id="subExpense">
+       <div class="title">
+      <h2>مصاريفى</h2>
+    </div>
     <div class="filter">
-      <p>Filter</p>
-      <svg
-        width="60px"
-        height="30px"
-        viewBox="0 0 16 16"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M0 3H16V1H0V3Z" fill="#fff" />
-        <path d="M2 7H14V5H2V7Z" fill="#fff" />
-        <path d="M4 11H12V9H4V11Z" fill="#fff" />
-        <path d="M10 15H6V13H10V15Z" fill="#dfdf" />
-      </svg>
+  
+ 
       <input
         type="month"
         name=""
@@ -37,15 +29,20 @@
       </button>
     </div>
   </div>
+    <div class="no-exp" *ngIf="pageExpenses.length === 0">
+      لا توجد معاملة هذا الشهر حتى الان
+      من هذا النوع 
 
-  <div id="detailsContainer" @listAnimation>
+   </div>
+
+  <div id="detailsContainer" *ngIf="loaded" @listAnimation>
     <div
     @listAnimation
       (click)="show(i)"
       [class.rotate]="toogle[i]"
       id="details"
       *ngFor="let expense of pageExpenses; index as i"
-    >
+       >
       <img src="../../../assets/egp.png" />
       <div class="content" *ngIf="!toogle[i]">
         <div>{{ expense.name }}</div>
@@ -57,11 +54,7 @@
         <div id="date">{{ expense.date | date : "d MMMM , y" }}</div>
       </div>
     </div>
-    <div style="text-align: center;" *ngIf="pageExpenses.length === 0">
-      لا توجد معاملة هذا الشهر حتى الان
-      من هذا النوع 
-
-   </div>
+  
 
     <div class="pages-btn" *ngIf="pagesArray.length > 0">
       <button
@@ -72,7 +65,6 @@
       </button>
     </div>
   </div>
-  <div @shake *ngIf="!expenses">لا توجد معاملة من هذا النوع حتى الان</div>
 
   <div id="chart" *ngIf="loaded" class="in">
     <ngx-charts-advanced-pie-chart
@@ -81,7 +73,7 @@
       [scheme]="'horizon'"
       [results]="single"
       [gradient]="gradient"
-      [label]="'الدخل'"
+      [label]="'مصاريفى'"
     >
     </ngx-charts-advanced-pie-chart>
   </div>
