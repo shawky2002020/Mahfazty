@@ -6,7 +6,8 @@
   position: relative;
   width: 100vw;
 }
-.overlay{
+
+.overlay {
   background: #000000e4;
   position: fixed;
   top: 0;
@@ -15,9 +16,9 @@
   height: 100%;
   z-index: 99;
   /* opacity: 0; */
-
   transition: opacity 0.3s ease-in-out;
 }
+
 .overlay.active {
   opacity: 1;
 }
@@ -59,16 +60,16 @@
 img {
   width: auto;
   position: relative;
-  max-width: 200px;
+  max-width: 150px;
   margin-bottom: 2rem;
   height: 100%;
   object-fit: contain; /* Ensures the image covers the available space without stretching */
 }
 @media screen and (max-width: 768px) {
-  #ulist{
+  #ulist {
     height: 130px;
   }
-  .photo{
+  .photo {
     height: fit-content;
   }
   img {
@@ -115,7 +116,7 @@ i {
 #nav-bar.active {
   #list {
     opacity: 1;
-    transform: translateX(-100px);
+    transform: translateX(0);
   }
 }
 .bars-container {
@@ -154,7 +155,8 @@ i {
 
 #list {
   position: absolute;
-  top: 80px;
+  top: 60px;
+  right: 0;
   font-family: "Cairo", sans-serif;
   display: flex;
   width: 280px;
@@ -163,9 +165,16 @@ i {
   background: #e3f2fd;
   border-radius: 5px;
   opacity: 0;
+  overflow-x: hidden;
   z-index: 100;
   transform: translateX(100%);
   transition: opacity 1s ease-in-out, transform 0.5s ease-in-out !important;
+  @media screen and (max-width: 720px) {
+    width: 200px;
+    li {
+      height: 60px !important;
+    }
+  }
 }
 
 #list li {
@@ -186,6 +195,9 @@ i {
     align-items: center;
     justify-content: start;
     padding: 0 24px;
+    @media screen and (max-width:768px) {
+      font-size: 20px !important;
+    }
     i {
       color: #002855;
       margin-right: 12px;
@@ -219,7 +231,7 @@ i {
 #list li:hover {
   color: #e3f2fd;
   background-color: #002855;
-  i{
+  i {
     color: #e3f2fd !important;
   }
 }

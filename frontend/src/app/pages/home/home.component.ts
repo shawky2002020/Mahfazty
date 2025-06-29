@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
   ) {
     setTimeout(() => {
       this.timerEnded = true;
-    }, 3000);
+    }, 1200);
   }
 
   ngOnInit(): void {

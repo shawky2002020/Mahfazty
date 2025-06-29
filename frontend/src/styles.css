@@ -121,3 +121,54 @@ body{
   border: solid;
   z-index: -1;
 }
+button{
+  position: relative;
+  transition: all .5s ease-in-out;
+}
+
+button.loading{
+  color: transparent !important;
+  pointer-events: none;
+  background: #000000a7 !important;
+}
+
+button.loading::after{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 5px solid;
+  border-top-color: #ffffff;
+  animation: loading 1s linear infinite;
+} 
+
+button.loading::before{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 5px solid;
+  border-color: #170485;
+  /* animation: loading 1s linear infinite; */
+} 
+.selected{
+  transform: translateY(-3px);
+  background: #eeeeee !important;
+  color: rgba(0, 0, 0, 0.837) !important;
+  box-shadow: 0 1px 5px rgba(245, 245, 245, 0.558);
+}
+
+@keyframes loading {
+  to{
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+
+}

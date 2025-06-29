@@ -46,6 +46,7 @@ import { BufferComponent } from './partials/buffer/buffer.component';
             timeOut: 2000,
             extendedTimeOut: 1000,
             preventDuplicates: true,
+            maxOpened:1,
             toastClass: 'arabic',
             titleClass: 'title-main',
         }),

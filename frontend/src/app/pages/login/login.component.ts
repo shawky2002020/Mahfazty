@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ExpenseService } from '../../services/expense.service';
@@ -15,24 +15,29 @@ import { trigger, transition, style, animate } from '@angular/animations';
     trigger('fadeSlide', [
       transition(':enter', [
         style({ opacity: 0, transform: 'translateY(-20px)' }),
-        animate('1000ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+        animate(
+          '1000ms ease-out',
+          style({ opacity: 1, transform: 'translateY(0)' })
+        ),
       ]),
       transition(':leave', [
-        animate('300ms ease-in', style({ opacity: 0, transform: 'translateY(-20px)' }))
-      ])
-    ])
-  ]
-    
+        animate(
+          '300ms ease-in',
+          style({ opacity: 0, transform: 'translateY(-20px)' })
+        ),
+      ]),
+    ]),
+  ],
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
-  returnUrl!:string;
+  returnUrl!: string;
   constructor(
     private fb: FormBuilder,
     private toastr: ToastrService,
-    private router : Router,
-    private activeRoute : ActivatedRoute,
-    private userService: UsersService,
+    private router: Router,
+    private activeRoute: ActivatedRoute,
+    private userService: UsersService
   ) {}
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -46,7 +51,7 @@ export class LoginComponent implements OnInit {
         ],
       ],
     });
-    this.returnUrl=this.activeRoute.snapshot.queryParams['returnUrl'];
+    this.returnUrl = this.activeRoute.snapshot.queryParams['returnUrl'];
   }
   currentUser!: Users;
   sumbitted: boolean = false;
@@ -54,10 +59,11 @@ export class LoginComponent implements OnInit {
   get fc() {
     return this.loginForm.controls;
   }
-
+  @ViewChild('loginBtnEl') loginBtn!: ElementRef;
   submit() {
     this.sumbitted = true;
     if (this.loginForm.valid) {
+      this.loginBtn.nativeElement.classList.add('loading');
       this.currentUser = {
         email: this.fc['email'].value,
         password: this.fc['password'].value,
@@ -65,11 +71,13 @@ export class LoginComponent implements OnInit {
       this.userService.loginUser(this.currentUser).subscribe({
         next: (res) => {
           this.loginForm.disable();
-          this.toastr.success('نورت يا غنى 😎','تم التسجيل ينجاح')
+          this.toastr.success('نورت يا غنى 😎', 'تم التسجيل ينجاح');
           this.router.navigateByUrl(this.returnUrl);
+          this.loginBtn.nativeElement.classList.remove('loading');
         },
-        error(err) {
+        error: (err) => {
           console.log(err.message);
+          this.loginBtn.nativeElement.classList.remove('loading');
         },
       });
     } else {

@@ -334,8 +334,8 @@ export class ExpensesComponent implements OnInit {
   positionLegend:LegendPosition=LegendPosition.Below
 
   
-  view: [number, number] = [window.innerWidth * 0.8, 400]; // Default width and height
-
+  view: [number, number] = [window.innerWidth > 600? 500 : window.innerWidth *.8
+    , 400]; //
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.updateChartSize();

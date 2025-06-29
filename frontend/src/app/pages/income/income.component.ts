@@ -316,13 +316,18 @@ export class IncomeComponent implements OnInit {
       value: 0,
     },
   ];
-  view: [number, number] = [window.innerWidth * 0.8, 400]; // Default width and height
+  view: [number, number] = [window.innerWidth > 600? 500 : window.innerWidth *.8
+    , 400]; // Default width and height
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.updateChartSize();
   }
 
   updateChartSize() {
+    if (window.innerWidth < 600) {
+      this.view = [window.innerWidth - 50, 400]; // Adjust for smaller screens
+      
+    }
     const width = window.innerWidth * 0.8; // Adjust as per your requirement
 
     const height = 400; // Fixed height or calculate dynamically

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ChartOptions } from 'chart.js';
 import { Expense, subdate } from '../../interfaces/expense';
 import { ChartService } from '../../services/chart.service';
@@ -6,7 +6,15 @@ import { ExpenseService } from '../../services/expense.service';
 import { UsersService } from '../../services/users.service';
 import { FilterService } from '../../services/filter.service';
 import { ToastrService } from 'ngx-toastr';
-import { animate, keyframes, query, stagger, style, transition, trigger } from '@angular/animations';
+import {
+  animate,
+  keyframes,
+  query,
+  stagger,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { forkJoin } from 'rxjs';
 
 @Component({
@@ -23,47 +31,67 @@ import { forkJoin } from 'rxjs';
             style({ transform: 'translateX(10px)', offset: 0.4 }),
             style({ transform: 'translateX(-10px)', offset: 0.6 }),
             style({ transform: 'translateX(10px)', offset: 0.8 }),
-            style({ transform: 'translateX(0)', offset: 1.0 })
+            style({ transform: 'translateX(0)', offset: 1.0 }),
           ])
-        )
-      ])
+        ),
+      ]),
     ]),
     trigger('dropInStagger', [
       transition('* => *', [
-        query(':enter', [
-          style({ transform: 'translateY(-40px)', opacity: 0 }),
-          stagger('150ms', [
-            animate('800ms cubic-bezier(0.25, 0.8, 0.25, 1)', style({ transform: 'translateY(0)', opacity: 1 }))
-          ])
-        ], { optional: true })
-      ])
+        query(
+          ':enter',
+          [
+            style({ transform: 'translateY(-40px)', opacity: 0 }),
+            stagger('150ms', [
+              animate(
+                '800ms cubic-bezier(0.25, 0.8, 0.25, 1)',
+                style({ transform: 'translateY(0)', opacity: 1 })
+              ),
+            ]),
+          ],
+          { optional: true }
+        ),
+      ]),
     ]),
     trigger('waveStagger', [
       transition('* => *', [
-        query(':enter', [
-          style({ transform: 'translateY(20px)', opacity: 0 }),
-          stagger('150ms', [
-            animate('300ms ease-out', style({ transform: 'translateY(0)', opacity: 1 }))
-          ]),
-          query(':enter:nth-child(even)', [
-            animate('1000ms ease-in', style({ transform: 'translateY(-10px)' }))
-          ], { optional: true })
-        ], { optional: true })
-      ])
-    ])
-  ]
-    
+        query(
+          ':enter',
+          [
+            style({ transform: 'translateY(20px)', opacity: 0 }),
+            stagger('150ms', [
+              animate(
+                '300ms ease-out',
+                style({ transform: 'translateY(0)', opacity: 1 })
+              ),
+            ]),
+            query(
+              ':enter:nth-child(even)',
+              [
+                animate(
+                  '1000ms ease-in',
+                  style({ transform: 'translateY(-10px)' })
+                ),
+              ],
+              { optional: true }
+            ),
+          ],
+          { optional: true }
+        ),
+      ]),
+    ]),
+  ],
 })
 export class WalletComponent implements OnInit {
   userId!: string;
   pagesArray!: number[];
   expenses!: Expense[];
-  initialItems:Expense[]=[]
+  initialItems: Expense[] = [];
   pageExpenses: Expense[] = [];
   outcomeExpense!: Expense[];
   incomeExpense!: Expense[];
   subDate!: subdate;
-  loaded=false;
+  loaded = false;
   dateSelected = false;
   maxItemsPerPage = 10;
   constructor(
@@ -73,60 +101,60 @@ export class WalletComponent implements OnInit {
     private toast: ToastrService
   ) {
     this.userId = this.userService.currentUser.data._id || '';
-    
   }
   toogle!: boolean[];
 
-ngOnInit(): void {
-  this.loadExpenses();
-}
+  ngOnInit(): void {
+    this.loadExpenses();
+  }
+  @ViewChild('inEl') inBtn!: ElementRef;
+  @ViewChild('outEl') outBtn!: ElementRef;
 
-loadExpenses() {
-  forkJoin({
-    allExpenses: this.expenseService.getExpense(this.userId),
-    outcome: this.expenseService.getTypeExpense('صرف', this.userId),
-    income: this.expenseService.getTypeExpense('دخل', this.userId)
-  }).subscribe({
-    next: ({ allExpenses, outcome, income }) => {
-      this.expenses = allExpenses;
-      this.outcomeExpense = outcome;
-      this.incomeExpense = income;
-      this.toogle = Array(this.expenses.length).fill(false);
-      this.getItemsPerPage();
-    },
-    error: (err) => {
-      console.error(err);
-      this.toast.error('حدث خطأ أثناء تحميل البيانات');
-      this.loaded = true;
-    },
-    complete:()=>{
-      this.loaded=true;
-    }
-  });
-}
+  loadExpenses() {
+    forkJoin({
+      allExpenses: this.expenseService.getExpense(this.userId),
+      outcome: this.expenseService.getTypeExpense('صرف', this.userId),
+      income: this.expenseService.getTypeExpense('دخل', this.userId),
+    }).subscribe({
+      next: ({ allExpenses, outcome, income }) => {
+        this.expenses = allExpenses;
+        this.outcomeExpense = outcome;
+        this.incomeExpense = income;
+        this.toogle = Array(this.expenses.length).fill(false);
+        this.getItemsPerPage();
+      },
+      error: (err) => {
+        console.error(err);
+        this.toast.error('حدث خطأ أثناء تحميل البيانات');
+        this.loaded = true;
+      },
+      complete: () => {
+        this.loaded = true;
+      },
+    });
+  }
 
   getPagesNum(expenses: Expense[]) {
     console.log(expenses);
-    let pages = Math.ceil((expenses.length / this.maxItemsPerPage)); 
+    let pages = Math.ceil(expenses.length / this.maxItemsPerPage);
     console.log(pages);
     let arrayOfPages = Array(pages).fill(0);
     this.pagesArray = arrayOfPages;
   }
 
   getItemsPerPage(page: number = 0) {
-
-    let start = (page) * this.maxItemsPerPage;
-    let end = (page+1) * this.maxItemsPerPage;
+    let start = page * this.maxItemsPerPage;
+    let end = (page + 1) * this.maxItemsPerPage;
     this.pageExpenses = this.expenses.slice(start, end);
     console.log(this.pageExpenses);
     this.getPagesNum(this.expenses);
-    
   }
 
-
   filter(s: string) {
-    this.loaded=false;
+    this.loaded = false;
     if (s === 'دخل') {
+      this.inBtn.nativeElement.classList.add('selected');
+      this.outBtn.nativeElement.classList.remove('selected');
       const incomeExps = this.incomeExpense;
       if (this.dateSelected) {
         const filteredExpenses = incomeExps.filter((expense) => {
@@ -145,6 +173,9 @@ loadExpenses() {
         this.expenses = incomeExps;
       }
     } else if (s === 'صرف') {
+      this.inBtn.nativeElement.classList.remove('selected');
+      this.outBtn.nativeElement.classList.add('selected');
+
       const outcomeExps = this.outcomeExpense;
       if (this.dateSelected) {
         const filteredExpenses = outcomeExps.filter((expense) => {
@@ -166,7 +197,7 @@ loadExpenses() {
 
     this.getItemsPerPage();
     this.toogle.fill(false, 0, this.toogle.length);
-    this.loaded=true;
+    this.loaded = true;
   }
 
   filterDate(datestring: string) {
@@ -205,13 +236,12 @@ loadExpenses() {
       subType: expense.subType,
     };
     this.expenseService.addExpense(newExpense).subscribe({
-      
       error: (err) => {
         console.log(err);
       },
-      complete:()=>{
-        this.loadExpenses()
-      }
+      complete: () => {
+        this.loadExpenses();
+      },
     });
   }
 
@@ -222,9 +252,9 @@ loadExpenses() {
 
         this.pageExpenses.splice(i, 1);
       },
-      complete:()=>{
-        this.loadExpenses()
-      }
+      complete: () => {
+        this.loadExpenses();
+      },
     });
   }
 

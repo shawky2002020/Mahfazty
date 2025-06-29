@@ -68,6 +68,7 @@ form{
 }
 
 button{
+  position: relative;
   background-color:rgb(3, 37, 255);
   color:whitesmoke;
   font-size: 1.3rem;

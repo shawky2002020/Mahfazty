@@ -9,8 +9,8 @@
   align-items: center;
   align-content: flex-start;
   gap: 2rem;
-    width:80vw;
-  max-width: 600px;
+  width:80vw;
+  max-width: 800px;
   min-width: 300px;
   background: linear-gradient(rgba(0, 0, 0, 0.241) 10%, rgba(0, 0, 0, 0.174));
   margin: 2rem;
@@ -57,7 +57,7 @@
   border-radius: 1rem;
 }
 input[type=month]{
-  max-width: 3rem;
+  max-width: 4rem;
   text-align: center;
   border-radius: .1rem;
   height: 2rem;
@@ -79,7 +79,7 @@ button{
  gap: 1rem;
  align-items: center;
  justify-content: center;
- flex-flow: row nowrap;
+ flex-flow: row wrap;
 }
 @media screen and (max-width:968px) {
   .heads{
@@ -89,8 +89,11 @@ button{
 .container {
   font-size: 1.5rem;
   height: 7rem;
+  width: fit-content;
   flex: 1 1;
   background-color: rgba(0, 0, 0, 0.319);
+  border: solid 1px aliceblue;
+  padding:0 24px;
   color: whitesmoke;
   border-radius: 1rem;
   display: flex;
@@ -101,6 +104,10 @@ button{
   align-items: center;
   z-index: 1; /* Ensures content is above the background effect */
   cursor: pointer;
+  @media screen and (max-width:760px) {
+    width: 100%;
+    flex: auto;
+  }
 }
 
 
@@ -225,11 +232,7 @@ img{
   color: #caf0f8 !important;
 }
 
-#details:hover
-{
-  opacity: .6;
-  
-}
+
 
 
 #chart {
@@ -246,9 +249,12 @@ box-shadow: 5px 5px 5px 0px #001d3d56, inset 1px 1px 15px 0px rgb(9, 104, 187), 
 ngx-charts-advanced-pie-chart{
   align-items: center;
   justify-content: center;
+  justify-self: center;
   background-color: #feffff26;
   border-radius: 1rem;
-  margin: 1rem;
+  width: fit-content;
+  margin: auto;
+  max-width: 100%;
 }
 
 

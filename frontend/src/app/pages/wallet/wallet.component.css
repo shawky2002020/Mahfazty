@@ -71,7 +71,7 @@
   border-radius: 1rem;
 }
 input[type=month]{
-  max-width: 3rem;
+  max-width: 4rem;
   text-align: center;
   border-radius: .1rem;
   height: 2rem;
@@ -112,19 +112,18 @@ button{
 }
 
 #in,#out{
-  flex: 1 1;
-  font-size: 2rem;
-  padding: .5rem 0;
+  font-size: 1.4rem;
+  font-weight: 700;
   border: none;
 }
 
 #in{
-  background-color: aliceblue;
-  color: #0b142c;
+  background-color:palegreen;
+  color: #031750;
 }
 
 #out{
-  background-color: #0b142c;
+  background-color: #031750;
   color: #fff;
 }
 
@@ -241,10 +240,7 @@ button{
   background-color: whitesmoke;
 }
 
-button:is(:hover,:focus,:active){
-  -webkit-box-shadow: 5px 5px 5px 0px #fff, inset 4px 4px 15px 0px #fff, 5px 5px 15px 5px aliceblue; 
-box-shadow: 5px 5px 5px 0px #001d3d56, inset 1px 1px 15px 0px rgb(9, 104, 187), 1px 1px 15px 1px aliceblue;
-}
+
 
 .rotate{
   animation: card .5s ease-in-out  1  ;

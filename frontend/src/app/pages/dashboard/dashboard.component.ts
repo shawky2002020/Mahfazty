@@ -1,4 +1,11 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ExpenseService } from '../../services/expense.service';
 import { ToastrService } from 'ngx-toastr';
@@ -14,16 +21,21 @@ import { trigger, transition, style, animate } from '@angular/animations';
     trigger('fadeSlide', [
       transition(':enter', [
         style({ opacity: 0, transform: 'translateY(-20px)' }),
-        animate('300ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+        animate(
+          '300ms ease-out',
+          style({ opacity: 1, transform: 'translateY(0)' })
+        ),
       ]),
       transition(':leave', [
-        animate('300ms ease-in', style({ opacity: 0, transform: 'translateY(-20px)' }))
-      ])
-    ])
-  ]
-  
+        animate(
+          '300ms ease-in',
+          style({ opacity: 0, transform: 'translateY(-20px)' })
+        ),
+      ]),
+    ]),
+  ],
 })
-export class DashboardComponent implements OnInit,OnChanges {
+export class DashboardComponent implements OnInit, OnChanges {
   expenseForm!: FormGroup;
   returnUrl!: string;
   type: string = '';
@@ -35,10 +47,10 @@ export class DashboardComponent implements OnInit,OnChanges {
     private activeRouter: ActivatedRoute
   ) {}
   ngOnChanges(changes: SimpleChanges): void {
-    this.type=this.fc['type'].value;
+    this.type = this.fc['type'].value;
   }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
     this.expenseForm = this.fb.group({
       name: ['', Validators.required],
       type: ['', Validators.required],
@@ -49,7 +61,7 @@ export class DashboardComponent implements OnInit,OnChanges {
     this.returnUrl = this.activeRouter.snapshot.queryParams['returnUrl'];
   }
 
-  typeChanged(event:Event){
+  typeChanged(event: Event) {
     const inputElement = event.target as HTMLInputElement;
     this.type = inputElement.value;
   }
@@ -57,9 +69,10 @@ export class DashboardComponent implements OnInit,OnChanges {
   get fc() {
     return this.expenseForm.controls;
   }
-
+  @ViewChild('submitBtnEl') submitBtn!: ElementRef;
   submitForm() {
     if (this.expenseForm.valid) {
+      this.submitBtn.nativeElement.classList.add('loading');
       const dateString: Date = this.fc['date'].value;
       const date = new Date(dateString);
       console.log(date);
@@ -75,11 +88,12 @@ export class DashboardComponent implements OnInit,OnChanges {
 
       this.expenseService.addExpense(expense).subscribe({
         next: (res) => {
+          this.submitBtn.nativeElement.classList.remove('loading');
           this.router.navigateByUrl(this.returnUrl);
         },
         error: (err) => {
+          this.submitBtn.nativeElement.classList.remove('loading');
           console.log(err);
-
           this.toastr.error('العملية فشلت ', 'خطأ');
         },
       });
