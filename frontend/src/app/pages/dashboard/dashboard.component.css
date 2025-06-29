@@ -33,6 +33,17 @@ label{
 
 #subtypes{
   padding: 1rem;
+  animation: show 1s ease-in-out;
+}
+
+@keyframes show {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+
 }
 
 input[type=date]{

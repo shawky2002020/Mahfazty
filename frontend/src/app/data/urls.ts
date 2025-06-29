@@ -1,6 +1,6 @@
+import * as environment from '../enviroments/enviroment';
 
-
-export const BASEURL = 'http://localhost:5000';
+export const BASEURL = environment.production;
 
 //Charts urls
 export const CHART_BASE = BASEURL + '/api/chart';

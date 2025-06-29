@@ -4,5 +4,5 @@ export const development = {
 };
 export const production = {
   production: true,
-  apiUrl: 'https://mahfazty-api.fly.dev',
+  apiUrl: 'https://mahfazty.onrender.com',
 };

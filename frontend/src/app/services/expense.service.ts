@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Expense } from '../interfaces/expense';
-import { HttpClient, HttpClientModule, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { delay, Observable, tap } from 'rxjs';
 import * as Url from '../data/urls';
 import { UsersService } from './users.service';

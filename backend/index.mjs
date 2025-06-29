@@ -25,6 +25,7 @@ app.use(
 // DataBase
 await dbconnect();
 app.listen(PORT, (req, res) => {
+  
   console.log("Listening on port ", PORT);
 });
 
@@ -33,3 +34,6 @@ app.use("/api/expense", expenseRouter);
 app.use("/api/chart", chartRouter);
 app.use("/api/user", userRouter);
 app.use("/api/filter", filterRouter);
+app.use("/", async (req, res) => {
+  res.send("Hello World!");
+});
