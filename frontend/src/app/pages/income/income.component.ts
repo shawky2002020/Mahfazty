@@ -106,6 +106,8 @@ export class IncomeComponent implements OnInit {
       },
       error: (err) => {
         console.error('Error loading data:', err);
+        this.toast.error('حدث خطأ أثناء تحميل البيانات');
+        this.loaded = true;
       },
       complete: () => {
         this.updateChartData();
@@ -314,14 +316,15 @@ export class IncomeComponent implements OnInit {
       value: 0,
     },
   ];
-  view: [number, number] = [window.innerWidth * 0.5, 400]; // Default width and height
+  view: [number, number] = [window.innerWidth * 0.8, 400]; // Default width and height
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.updateChartSize();
   }
 
   updateChartSize() {
-    const width = window.innerWidth ; // Adjust as per your requirement
+    const width = window.innerWidth * 0.8; // Adjust as per your requirement
+
     const height = 400; // Fixed height or calculate dynamically
     this.view = [width, height];
   }

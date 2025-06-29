@@ -1,6 +1,6 @@
 import * as environment from '../enviroments/enviroment';
 
-export const BASEURL = environment.production;
+export const BASEURL = environment.production.apiUrl;
 
 //Charts urls
 export const CHART_BASE = BASEURL + '/api/chart';

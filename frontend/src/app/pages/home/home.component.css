@@ -33,7 +33,6 @@
   flex: 1 0 ;
   justify-content: space-around;
   position: relative;
-  z-index: 5;
   color: #caf0f8;
   border-radius: 1rem;
   padding: 0 .7rem;
@@ -87,7 +86,6 @@ section{
 
 #chart {
   position: relative;
-  z-index: 2;
   margin: 10rem 0 0 ;
   overflow-x: auto;
   width: 700px;

@@ -29,12 +29,15 @@ export class HomeComponent implements OnInit {
   incomeExpense!: Expense[];
   outcomeExpense!: Expense[];
   isDataLoaded: boolean = false; // Flag to check if data is loaded
-
+  timerEnded = false;
   constructor(
     public expenseService: ExpenseService,
     private userService : UsersService,
     private chartService: ChartService,
   ) {
+    setTimeout(() => {
+      this.timerEnded = true;
+    }, 3000);
   }
 
   ngOnInit(): void {

@@ -32,7 +32,7 @@ label{
 }
 
 #subtypes{
-  padding: 1rem;
+  padding: .5rem 1rem;
   animation: show 1s ease-in-out;
 }
 

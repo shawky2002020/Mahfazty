@@ -9,6 +9,9 @@
   align-items: center;
   align-content: flex-start;
   gap: 2rem;
+    width:80vw;
+  max-width: 600px;
+  min-width: 300px;
   background: linear-gradient(rgba(0, 0, 0, 0.241) 10%, rgba(0, 0, 0, 0.174));
   margin: 2rem;
   z-index: 5;

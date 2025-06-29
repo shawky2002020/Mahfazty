@@ -96,6 +96,8 @@ loadExpenses() {
     },
     error: (err) => {
       console.error(err);
+      this.toast.error('حدث خطأ أثناء تحميل البيانات');
+      this.loaded = true;
     },
     complete:()=>{
       this.loaded=true;

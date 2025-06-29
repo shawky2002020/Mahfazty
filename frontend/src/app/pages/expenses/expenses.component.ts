@@ -105,6 +105,8 @@ export class ExpensesComponent implements OnInit {
       },
       error: (err) => {
         console.error('Error loading data:', err);
+        this.toast.error('حدث خطأ أثناء تحميل البيانات');
+        this.loaded = true;
       },
       complete: () => {
         this.getItemsPerPage();
@@ -332,7 +334,7 @@ export class ExpensesComponent implements OnInit {
   positionLegend:LegendPosition=LegendPosition.Below
 
   
-  view: [number, number] = [window.innerWidth * 0.5, 400]; // Default width and height
+  view: [number, number] = [window.innerWidth * 0.8, 400]; // Default width and height
 
   @HostListener('window:resize', ['$event'])
   onResize() {
@@ -340,7 +342,8 @@ export class ExpensesComponent implements OnInit {
   }
 
   updateChartSize() {
-    const width = window.innerWidth ; // Adjust as per your requirement
+    const width = window.innerWidth * 0.8; // Adjust as per your requirement
+
     const height = 400; // Fixed height or calculate dynamically
     this.view = [width, height];
   }

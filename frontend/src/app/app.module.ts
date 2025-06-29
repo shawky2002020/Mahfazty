@@ -23,6 +23,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { loadingInterceptor } from './auth/loading.interceptor';
 import { LoadingComponent } from './partials/loading/loading.component';
+import { BufferComponent } from './partials/buffer/buffer.component';
 
 @NgModule({ declarations: [
         AppComponent,
@@ -35,6 +36,7 @@ import { LoadingComponent } from './partials/loading/loading.component';
         LoginComponent,
         RegisterComponent,
         LoadingComponent,
+        BufferComponent,
     ],
     bootstrap: [AppComponent], imports: [BrowserModule,
         AppRoutingModule,
