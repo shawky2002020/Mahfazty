@@ -323,29 +323,6 @@ This project is licensed under the [MIT License](LICENSE) - see the LICENSE file
 
 ---
 
-<h2>💡 **Support & Contact**</h2>
-
-<table align="center">
-<tr>
-<td align="center">
-<a href="https://github.com/yourusername/mahfazty/issues">
-<img src="https://img.shields.io/badge/Issues-Report%20Bug-1e3a8a?style=for-the-badge&logo=github" alt="Issues">
-</a>
-</td>
-<td align="center">
-<a href="https://github.com/yourusername/mahfazty/discussions">
-<img src="https://img.shields.io/badge/Discussions-Ask%20Question-1e40af?style=for-the-badge&logo=github" alt="Discussions">
-</a>
-</td>
-<td align="center">
-<a href="mailto:shawkyelsayed2002@gmail.com">
-<img src="https://img.shields.io/badge/Email-Contact%20Us-1e3a8a?style=for-the-badge&logo=gmail" alt="Email">
-</a>
-</td>
-</tr>
-</table>
-
----
 
 <h1 align="center">🌟 **Mahfazty** 🌟</h1>
 <h3 align="center"><em>"Track your money, own your future!"</em></h3>
