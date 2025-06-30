@@ -111,9 +111,13 @@ PORT=5000
 ## 📊 Screenshots
 
 <p align="center">
-  <img src="frontend/src/assets/mahfazty.png" width="120" />
-  <img src="frontend/src/assets/money.jpg" width="200" />
-  <img src="frontend/src/assets/world.png" width="200" />
+![home](https://github.com/user-attachments/assets/4b92d61b-3efe-49e0-9bdf-4a47b3e27cd2)
+![login](https://github.com/user-attachments/assets/6b123176-02ed-4a87-84ef-fc4e45f0cb24)
+
+![expenses](https://github.com/user-attachments/assets/b3ae6759-6e77-423d-b9bd-447218864f00)
+![add](https://github.com/user-attachments/assets/30e2967c-4ef6-46c6-a113-5f39e8f07ee3)
+![wallet](https://github.com/user-attachments/assets/d2556a7e-b7ac-4828-9606-cd22e588edbc)
+
 </p>
 
 ---
